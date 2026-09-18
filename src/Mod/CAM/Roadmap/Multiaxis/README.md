@@ -19,7 +19,7 @@ This is a fork-local engineering proposal, not an approved upstream roadmap or a
 
 CAM is integrated into the FreeCAD source tree under `src/Mod/CAM`; it is not a standalone Python plugin that can be forked independently without its C++ modules, geometry kernel, application objects, GUI, and build integration. Retain the full FreeCAD fork and initially keep changes inside CAM, its tests, and necessary build/test registration.
 
-The existing public `ntrp/FreeCAD` fork is reused. Its pre-existing `master` branch and repository settings are preserved. The new `cam-multiaxis` branch starts from the audited upstream revision, not from the old default branch. No upstream pull request is opened by this planning change. Backlog IDs are document identifiers, not GitHub issues or remotely created milestones.
+The existing public `ntrp/FreeCAD` fork is reused. The new `cam-multiaxis` branch is based on the audited upstream revision. At final verification, the default branch `master` also points to `691a041981b7972d3170ceadb96163019712d2b0`; it is not unchanged from its initially observed older revision, `57090a43f7bc66151e79d96c5ed12e6281e46f4f`. The branch name is retained, and the multiaxis planning commits are isolated on `cam-multiaxis`. No branch reset is performed to reverse the observed update. No upstream pull request is opened by this planning change. Backlog IDs are document identifiers, not GitHub issues or remotely created milestones.
 
 ### Initial product target
 
@@ -336,7 +336,7 @@ Use a small feature branch per work package, for example:
 git switch -c cam/ma-003-single-axis-reachability cam-multiaxis
 ```
 
-Follow MA-001 before claiming a test run. Do not blindly rebase shared branches or change the old default `master`. Incorporate upstream through reviewed merges or an agreed branch policy; record the resulting source SHA and re-run the acceptance set. The first code contribution should normally be the reproduced single-axis reachability regression, not the new surface generator.
+Follow MA-001 before claiming a test run. Do not blindly rebase shared branches or reset the default `master`. Incorporate upstream through reviewed merges or an agreed branch policy; record the resulting source SHA and re-run the acceptance set. The first code contribution should normally be the reproduced single-axis reachability regression, not the new surface generator.
 
 ## 7. Source references and verification limits
 
